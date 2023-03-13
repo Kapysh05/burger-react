@@ -6,6 +6,10 @@
     padding: 24px 0 30px;
     margin-bottom: 30px;
   }
+
+  .container {
+    margin: 0 auto;
+  }
   
   .logo {
     width: 150px;
