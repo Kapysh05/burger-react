@@ -1,95 +1,38 @@
-import './count.css'
-import './goods.css'
-import './order.css'
+import { OrderGoods } from '../orderGoods/orderGoods'
+import Style from './Order.module.css'
+
+const orderList = ['Супер сырный', 'Картошка фри', 'Жгучий хот-дог']
 
 export const Order = () => {
 
     return (
-        <div className="catalog__order order">
-            <section className="order__wrapper">
-                <div className="order__header" tabIndex="0" role="button">
-                <h2 className="order__title">Корзина</h2>
+        <div className={Style.order}>
+            <section className={Style.wrapper}>
+                <div className={Style.header} tabIndex="0" role="button">
+                <h2 className={Style.title}>Корзина</h2>
 
-                <span className="order__count">4</span>
+                <span className={Style.count}>4</span>
                 </div>
 
-                <div className="order__wrap_list">
-                <ul className="order__list">
-                    <li className="order__item">
-                    <img className="order__image" src="img/burger_1.jpg" alt="Супер сырный"/>
+                <div className={Style.wrap_list}>
+                    <ul className={Style.list}>
+                        {orderList.map((item, i) => <OrderGoods key={i} item={item} />)}
+                    </ul>
 
-                    <div className="order__goods goods">
-                        <h3 className="goods__title">Супер сырный</h3>
-
-                        <p className="goods__weight">512г</p>
-
-                        <p className="goods__price">1279
+                    <div className={Style.total}>
+                        <p>Итого</p>
+                        <p>
+                        <span className={Style.amount}>1279</span>
                         <span className="currency">₽</span>
                         </p>
                     </div>
 
-                    <div className="count">
-                        <button className="count__minus">-</button>
-                        <p className="count__amount">1</p>
-                        <button className="count__plus">+</button>
+                    <button className={Style.submit}>Оформить заказ</button>
+
+                    <div className={Style.apeal}>
+                        <p className={Style.text}>Бесплатная доставка</p>
+                        <button className={Style.close}>Свернуть</button>
                     </div>
-                    </li>
-
-                    <li className="order__item">
-                    <img className="order__image" src="img/free_1.jpg" alt="Картошка фри"/>
-
-                    <div className="order__goods goods">
-                        <h3 className="goods__title">Картошка фри</h3>
-
-                        <p className="goods__weight">180г</p>
-
-                        <p className="goods__price">245
-                        <span className="currency">₽</span>
-                        </p>
-                    </div>
-
-                    <div className="count">
-                        <button className="count__minus">-</button>
-                        <p className="count__amount">2</p>
-                        <button className="count__plus">+</button>
-                    </div>
-                    </li>
-
-                    <li className="order__item">
-                    <img className="order__image" src="img/hot-dog_1.jpg" alt="Жгучий хот-дог"/>
-
-                    <div className="order__goods goods">
-                        <h3 className="goods__title">Жгучий хот-дог</h3>
-
-                        <p className="goods__weight">245г</p>
-
-                        <p className="goods__price">239
-                        <span className="currency">₽</span>
-                        </p>
-                    </div>
-
-                    <div className="count">
-                        <button className="count__minus">-</button>
-                        <p className="count__amount">1</p>
-                        <button className="count__plus">+</button>
-                    </div>
-                    </li>
-                </ul>
-
-                <div className="order__total">
-                    <p>Итого</p>
-                    <p>
-                    <span className="order__amount">1279</span>
-                    <span className="currency">₽</span>
-                    </p>
-                </div>
-
-                <button className="order__submit">Оформить заказ</button>
-
-                <div className="order__apeal">
-                    <p className="order__text">Бесплатная доставка</p>
-                    <button className="order__close">Свернуть</button>
-                </div>
                 </div>
             </section>
         </div>
