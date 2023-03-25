@@ -1,11 +1,13 @@
 import { Container } from '../Container/Container'
 import Style from './Navigation.module.css'
 import classNames from 'classnames'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeCategory } from '../../Store/category/categorySlice'
 
 export const Navigation = () => {
 
     const { category } = useSelector((state) => state.category)
+    const dispatch = useDispatch()
 
     return (
     <nav className={Style.navigation}>
@@ -13,7 +15,13 @@ export const Navigation = () => {
         <ul className={Style.list}>
           {category.map((item, i) => 
             <li className={Style.item}>
-              <button className={Style.button_active}>
+              <button className={classNames(
+                Style.button,
+                activeCategory === i ? Style.button_active : ' ')}
+                style={{backgroundImage: url`(${item.image})` }}
+                onClick={() => {
+                  dispatch(changeCategory({indexCategory: i}))
+                }}>
               {item.rus}
               </button>
             </li>
