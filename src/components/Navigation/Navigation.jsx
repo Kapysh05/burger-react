@@ -6,7 +6,7 @@ import { changeCategory } from '../../Store/category/categorySlice'
 
 export const Navigation = () => {
 
-    const { category } = useSelector((state) => state.category)
+    const { category, activeCategory } = useSelector((state) => state.category)
     const dispatch = useDispatch()
 
     return (
@@ -14,11 +14,11 @@ export const Navigation = () => {
       <Container className={Style.container}>
         <ul className={Style.list}>
           {category.map((item, i) => 
-            <li className={Style.item}>
+            <li  key={i} className={Style.item}>
               <button className={classNames(
                 Style.button,
                 activeCategory === i ? Style.button_active : ' ')}
-                style={{backgroundImage: url`(${item.image})` }}
+                style={{backgroundImage: `url(${item.image})` }}
                 onClick={() => {
                   dispatch(changeCategory({indexCategory: i}))
                 }}>
