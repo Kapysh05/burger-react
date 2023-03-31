@@ -14,9 +14,9 @@ export const Catalog = () => {
 
     useEffect(() => {
         if (category.length) {
-        dispatch(productRequestAsync(category[activeCategory].title))
+            dispatch(productRequestAsync(category[activeCategory].title))
         }
-    }, [])
+    }, [category, activeCategory])
 
     return (
         <section className={Style.catalog}>

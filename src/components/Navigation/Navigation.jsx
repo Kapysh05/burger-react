@@ -24,7 +24,7 @@ export const Navigation = () => {
               <button className={classNames(
                 Style.button,
                 activeCategory === i ? Style.button_active : ' ')}
-                style={{backgroundImage: `url(${API_URI}${item.image})` }}
+                style={{backgroundImage: `url(${API_URI}/${item.image})` }}
                 onClick={() => {
                   dispatch(changeCategory({indexCategory: i}))
                 }}>

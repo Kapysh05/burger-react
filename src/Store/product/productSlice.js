@@ -4,7 +4,6 @@ import { API_URI, POSTFIX } from "../../const"
 const initialState = {
     products: [],
     error: '',
-
 }
 
 export const productRequestAsync = createAsyncThunk(
